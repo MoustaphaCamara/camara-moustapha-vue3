@@ -3,7 +3,7 @@ import Footer from "./Footer.vue";
 import Character from "./Character.vue";
 import ky from "ky";
 import { onMounted, ref } from "vue";
-import {Amiibo} from "../shared/interfaces/Amiibo.ts";
+import { Amiibo } from "../shared/interfaces/Amiibo.ts";
 
 const amiibos = ref<Amiibo[]>([]);
 
@@ -35,7 +35,7 @@ onMounted(() => {
     <footer>
       <ul class="actions">
         <li>
-          <a href="liste.html" class="button large">Liste complète</a>
+          <RouterLink class="complete" to="/list">Liste complète</RouterLink>
         </li>
       </ul>
     </footer>
