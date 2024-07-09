@@ -35,10 +35,10 @@ onMounted(async () => {
               <h3>Infos</h3>
             </header>
             <p>
-              amiiboSeries: <b>Animal Crossing</b> <br />
-              character: Cube<br />
-              gameSeries: Animal Crossing<br />
-              type: card
+              amiiboSeries: <b>{{amiibo[0].amiiboSeries}}</b> <br />
+              character: {{amiibo[0].character}}<br />
+              gameSeries: {{amiibo[0].gameSeries}}<br />
+              type: {{amiibo[0].type}}
             </p>
           </section>
           <section class="box">
@@ -47,10 +47,8 @@ onMounted(async () => {
             </header>
 
             <ul class="divided">
-              <li>au: 2016-03-19</li>
-              <li>eu: 2016-03-18</li>
-              <li></li>
-              <li></li>
+              <li>au: {{ amiibo[0].release.au }}</li>
+              <li>eu: {{amiibo[0].release.eu}}</li>
             </ul>
           </section>
         </div>
@@ -59,12 +57,12 @@ onMounted(async () => {
           <article class="box post">
             <a href="#" class="featured"
             ><img
-                src="https://raw.githubusercontent.com/N3evin/AmiiboAPI/master/images/icon_00800102-035d0302.png"
+                :src="amiibo[0].image"
                 alt=""
             /></a>
             <header>
-              <h2>Name</h2>
-              <p>type</p>
+              <h2>{{amiibo[0].character}}</h2>
+              <p>{{amiibo[0].type}}</p>
             </header>
           </article>
         </div>
