@@ -5,5 +5,5 @@ import Banner from "../components/Banner.vue";
 
 <template>
   <Banner message="Hey. Bienvenue sur ma collection" />
-      <Intro />
+  <Intro />
 </template>

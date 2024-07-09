@@ -14,7 +14,7 @@ const router = createRouter({
       component: () => import("../pages/ListPage.vue"),
     },
   ],
-  linkActiveClass: "current"
+  linkActiveClass: "current",
 });
 
 export default router;

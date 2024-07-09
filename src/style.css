@@ -2209,13 +2209,13 @@ ul.social li a.fa-google-plus:hover {
   background: #f3f3f3;
 }
 
-.current  {
+.current {
   background: #d52349;
   color: #fff !important;
   font-weight: 700;
 }
 .current:hover {
-  color:black !important;
+  color: black !important;
 }
 
 .dropotron {
