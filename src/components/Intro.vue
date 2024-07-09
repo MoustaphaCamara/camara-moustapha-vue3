@@ -1,27 +1,17 @@
 <script setup lang="ts">
 import Footer from "./Footer.vue";
 import Character from "./Character.vue";
-import ky from "ky";
 import { onMounted, ref } from "vue";
+import { useAmiiboStore } from "../stores/amiibo.ts";
 import { Amiibo } from "../shared/interfaces/Amiibo.ts";
 
-const amiibos = ref<Amiibo[]>([]);
+const store = useAmiiboStore();
 
-const fetchData = async (): Promise<Amiibo> => {
-  try {
-    const fetch = await ky
-      .get("https://www.amiiboapi.com/api/amiibo/?character=Mewtwo")
-      .json();
-    const { amiibo } = fetch;
-    amiibos.value = amiibo;
-    console.log(amiibos.value);
-  } catch (e) {
-    console.error(e);
-  }
-};
+const amiibos = ref<Amiibo[] | null>(null);
 
-onMounted(() => {
-  fetchData();
+onMounted(async () => {
+  await store.fetchByName("MewTwo");
+  amiibos.value = store.amiibos.amiibo;
 });
 </script>
 
