@@ -2205,14 +2205,17 @@ ul.social li a.fa-google-plus:hover {
 }
 
 #nav > ul > li:hover > a,
-#nav > ul > li.active > a {
+.router-link-exact-active > a {
   background: #f3f3f3;
 }
 
-#nav > ul > li.current > a {
+.current  {
   background: #d52349;
   color: #fff !important;
   font-weight: 700;
+}
+.current:hover {
+  color:black !important;
 }
 
 .dropotron {
