@@ -32,7 +32,6 @@ onMounted(async () => {
             <tr v-for="amiibo in amiibos">
               <td>{{amiibo.name}}</td>
               <td>{{amiibo.gameSeries}}</td>
-              <td class="see-button" width="100px">voir</td>
               <td>
                 <RouterLink :to="{ name: 'detail', params: { name: amiibo.name }}"
                 >Voir {{amiibo.name}}</RouterLink
