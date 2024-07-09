@@ -3,23 +3,7 @@ import Footer from "./Footer.vue";
 import Character from "./Character.vue";
 import ky from "ky";
 import { onMounted, ref } from "vue";
-
-interface Amiibo {
-  amiiboSeries: string;
-  character: string;
-  gameSeries: string;
-  head: string;
-  image: string;
-  name: string;
-  release: {
-    au?: string;
-    eu?: string;
-    jp?: string;
-    na?: string;
-  };
-  tail: string;
-  type: string;
-}
+import {Amiibo} from "../shared/interfaces/Amiibo.ts";
 
 const amiibos = ref<Amiibo[]>([]);
 
@@ -44,9 +28,9 @@ onMounted(() => {
 <template>
   <section id="intro" class="container">
     <div class="row">
-      <Character />
-      <Character />
-      <Character />
+      <div v-for="amiibo in amiibos">
+        <Character :amiibo="amiibo" />
+      </div>
     </div>
     <footer>
       <ul class="actions">
