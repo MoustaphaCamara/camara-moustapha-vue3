@@ -11,7 +11,7 @@ const amiibos = ref<Amiibo[] | null>(null);
 
 onMounted(async () => {
   await store.fetchByName("MewTwo");
-  amiibos.value = store.amiibos.amiibo;
+  amiibos.value = store.amiibo.amiibo;
 });
 </script>
 

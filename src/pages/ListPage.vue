@@ -1,12 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {useAmiiboStore} from "../stores/amiibo.ts";
+import {onMounted, ref} from "vue";
+import {Amiibo} from "../shared/interfaces/Amiibo.ts";
+
+const amiibos = ref<Amiibo[] | null>(null);
+
+const store = useAmiiboStore();
+
+onMounted(async () => {
+  await store.fetchAmiibos("Pokemon");
+  amiibos.value = store.amiibo.amiibo;
+});
+</script>
+
 
 <template>
   <section id="main">
     <div class="container">
-
-      <!-- Content -->
       <article class="box post">
-
         <header>
           <h2>Ma Collection (10 par 10)</h2>
           <p>Page 1/n </p>
@@ -18,15 +29,15 @@
               <th>game Series</th>
               <th>Action</th>
             </tr>
-            <tr>
-              <td>Mario</td>
-              <td>Super Mario</td>
-              <td><button>voir</button></td>
-            </tr>
-            <tr>
-              <td>Luigi</td>
-              <td>Super Mario</td>
-              <td><button>voir</button></td>
+            <tr v-for="amiibo in amiibos">
+              <td>{{amiibo.name}}</td>
+              <td>{{amiibo.gameSeries}}</td>
+              <td class="see-button" width="100px">voir</td>
+              <td>
+                <RouterLink :to="{ name: 'detail', params: { name: amiibo.name }}"
+                >Voir {{amiibo.name}}</RouterLink
+                >
+              </td>
             </tr>
           </table>
         </p>

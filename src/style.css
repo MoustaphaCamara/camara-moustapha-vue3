@@ -2217,8 +2217,19 @@ ul.social li a.fa-google-plus:hover {
   font-weight: 700;
   transition: all 0.3s ease;
 }
-.complete:hover {
+.complete:hover, .see-button:hover {
   background: #ce4664;
+}
+
+.see-button {
+  background: #d52349;
+  color: #fff;
+  cursor:pointer;
+  padding: 8px 40px;
+  border-radius: 0.6rem;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 .current {
   background: #d52349;

@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { Amiibo } from "../shared/interfaces/Amiibo.ts";
-import { onMounted } from "vue";
 
 const props = defineProps<{ amiibo: Amiibo }>();
-
-onMounted(() => {
-  console.log(props.amiibo);
-});
 </script>
 
 <template>

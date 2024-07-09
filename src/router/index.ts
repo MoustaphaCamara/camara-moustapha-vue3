@@ -13,6 +13,11 @@ const router = createRouter({
       name: "list",
       component: () => import("../pages/ListPage.vue"),
     },
+    {
+      path: "/detail/:name",
+      name: "detail",
+      component: () => import("../pages/DetailPage.vue"),
+    },
   ],
   linkActiveClass: "current",
 });

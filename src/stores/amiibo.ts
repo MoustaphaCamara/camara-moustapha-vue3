@@ -8,11 +8,9 @@ const amiibos = ref<Amiibo[]>([]);
 const amiibo = ref<Amiibo | Amiibo[] | null>(null);
 
 export const useAmiiboStore = defineStore("amiibo", () => {
-  const fetchAmiibos = async (): Promise<Amiibo[]> => {
+  const fetchAmiibos = async (name: string): Promise<Amiibo[]> => {
     try {
-      amiibos.value = await ky
-        .get("https://www.amiiboapi.com/api/amiibo/")
-        .json();
+      amiibo.value = await ky.get(`${api}?gameseries=${name}`).json()
     } catch (e) {
       console.error(e);
     }
@@ -20,11 +18,11 @@ export const useAmiiboStore = defineStore("amiibo", () => {
 
   const fetchByName = async (name: string): Promise<Amiibo | Amiibo[]> => {
     try {
-      amiibos.value = await ky.get(`${api}?character=${name}`).json();
+      amiibo.value = await ky.get(`${api}?character=${name}`).json();
     } catch (e) {
       console.error(e);
     }
   };
 
-  return { amiibos, fetchByName, amiibo };
+  return { fetchAmiibos, amiibos, fetchByName, amiibo };
 });
